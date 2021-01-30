@@ -59,3 +59,14 @@ def add_profile(request):
 
     return render(request, 'pages/add_profile.html', {"form": form})
 
+@login_required(login_url='/accounts/login/')
+def search(request):
+
+    query = request.GET.get('q')
+    print(query)
+    if query:
+        results = Projects.objects.filter(
+            Q(title__icontains=query))
+    else:
+        results = Projects.objects.all()
+    return render(request, 'pages/search.html', {'results': results})
