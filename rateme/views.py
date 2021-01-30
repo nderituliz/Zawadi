@@ -39,3 +39,22 @@ def profile(request):
 
     return render(request, 'pages/profile.html', context)
 
+@login_required(login_url='/accounts/login/')
+def add_profile(request):
+    current_user = request.user
+    try:
+        profile = Profile.objects.get(username=current_user)
+        return redirect('profile')
+    except:
+        pass
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            upload = form.save(commit=False)
+            upload.username = current_user
+            upload.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm()
+
+    return render(request, 'pages/add_profile.html', {"form": form})
