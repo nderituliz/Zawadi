@@ -21,3 +21,21 @@ def home(request):
     projects = Projects.get_all_projects()
 
     return render(request, 'pages/home.html', {"word": word, "projects": projects})
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    current_user = request.user
+
+    try:
+        profile = Profile.objects.get(username=current_user)
+        print(profile)
+
+    except Exception as e:
+        profile = None
+        print(e)
+        return redirect('add_profile')
+
+    context = {" current_user": current_user, "profile": profile}
+
+    return render(request, 'pages/profile.html', context)
+
