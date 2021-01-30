@@ -58,3 +58,4 @@ def add_profile(request):
         form = ProfileForm()
 
     return render(request, 'pages/add_profile.html', {"form": form})
+
