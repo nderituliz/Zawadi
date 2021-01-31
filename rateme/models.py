@@ -1,3 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from pyuploadcare.dj.models import ImageField
