@@ -12,3 +12,19 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.username.username
+
+def post_save_user_model_receiver(sender, instance, created, *args, **kwargs):
+    if created:
+        try:
+            Profile.objects.create(user=instance)
+        except Exception as error:
+            print(error)
+post_save.connect(post_save_user_model_receiver,sender=settings.AUTH_USER_MODEL)
+
+class Projects(models.Model):
+    title = models.CharField(User, max_length=200)
+    image = ImageField(manual_crop='1920x1080')
+    image2 = ImageField(null=True, manual_crop='1920x1080')
+    description = models.TextField(max_length=200)
+    url = models.URLField(null=True, blank=True, default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name="images")
