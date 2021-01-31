@@ -4,3 +4,7 @@ from rest_framework.views import APIView
 from .serializer import ProfileSerializer, ProjectSerializer
 from ..models import Profile, Projects
 from rest_framework import viewsets
+
+class ProfileView(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
