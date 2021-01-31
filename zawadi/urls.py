@@ -14,3 +14,5 @@ urlpatterns = [
     # url(r'^logout/$', views.logout, {"next_page": '/accounts/login/'}),
     url(r'^api/', include('zawadi.api.urls')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
