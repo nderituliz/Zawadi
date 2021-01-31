@@ -44,3 +44,6 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.title
+
+class Categories(models.Model):
+    name = models.ManyToManyField(Projects)
