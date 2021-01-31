@@ -85,3 +85,9 @@ def search(request):
     else:
         results = Projects.objects.all()
     return render(request, 'pages/search.html', {'results': results})
+
+@login_required(login_url='/accounts/login/')
+def view_project(request, project_id):
+    project = Projects.objects.get(id=project_id)
+
+    return render(request, 'pages/view_project.html', {"project": project})
