@@ -1,0 +1,17 @@
+{% extends 'pages/base.html'%}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="card d-flex justify-content-center">
+        <div class="card-body col-md-4">
+            <form class="d-flex flex-column" action="{% url 'add_profile' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {{ form | crispy }}
+                <input type="submit" class="btn btn-success btn-sm" value="POST">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

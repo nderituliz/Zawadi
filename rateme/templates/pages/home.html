@@ -1,0 +1,36 @@
+{% extends 'pages/base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="container-fluid" >
+    <div style="background-image:url({% static 'images/HOME.jpg'%}); height: 70vh; background-size: cover; background-position: center;   background-repeat: no-repeat;">
+        <img src="({% static 'images/HOME.jpg'%})" class="img-fluid" max-width: 100%; height: auto;/>
+    </div>
+    </div>
+    <div>
+        <br/>
+        <h2 class="text-center font-weight-bold">Project Sites</h2>
+    </div>
+    <div class="templates d-flex flex-row">
+        {% for pro in projects %}
+
+        <div class="col-md-4 mt-4">
+            <div class="card profile-card-5">
+                <br/>
+                <h3 class="card-title text-center">{{pro.title}}</h3>
+                <div class="card-img-block">
+                    <a href="/project/{{pro.id}}"><img class="card-img-top" src="{{pro.image}}" alt="Card image cap"></a>
+                </div>
+                <div class="card-body pt-0">
+                    <br/>
+                    <p class="card-text">{{pro.description}}</p>
+                    <p class="text-capitalize py-1">Posted by : {{pro.user}}</p>
+                    <a href="{{pro.url}}" class="btn btn-primary">View Site</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
