@@ -29,12 +29,12 @@ class Projects(models.Model):
     url = models.URLField(null=True, blank=True, default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name="images")
 
- @classmethod
+    @classmethod
     def get_all_projects(cls):
         projects = Projects.objects.all()
         return projects
 
-   @classmethod
+    @classmethod
     def get_post(cls, id):
         projects = Projects.objects.filter(user=id)
         return projects

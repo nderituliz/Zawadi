@@ -23,6 +23,21 @@ def home(request):
     return render(request, 'pages/home.html', {"word": word, "projects": projects})
 
 @login_required(login_url='/accounts/login/')
+def submission(request):
+    current_user = request.user
+
+    if request.method == 'POST':
+        form = ProjectsForm(request.POST)
+        if form.is_valid():
+            upload = form.save(commit=False)
+            upload.user = current_user
+            upload.save()
+            return redirect('home')
+    else:
+        form = ProjectsForm()
+    return render(request, 'pages/submit.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
 
