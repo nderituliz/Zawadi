@@ -28,3 +28,8 @@ class Projects(models.Model):
     description = models.TextField(max_length=200)
     url = models.URLField(null=True, blank=True, default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name="images")
+
+ @classmethod
+    def get_all_projects(cls):
+        projects = Projects.objects.all()
+        return projects
