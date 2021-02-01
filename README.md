@@ -24,7 +24,7 @@ One can follow the following steps to get the project .......
 * pip
 
 ### Navigate into the folder and install requirements
-```cd project-awwards pip install -r requirements.txt ```
+```cd project-zawadi pip install -r requirements.txt ```
 
 ### Install and activate Virtual
 ```- python3 -m venv virtual - source venv/bin/activate ```
