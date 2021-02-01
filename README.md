@@ -45,7 +45,7 @@ SetUp your database User,Password, Host then make migrate
 ## Behaviour Driven Development
 | Input | Output | Behaviour |
 | :---------------- | :---------------: | ------------------: |
-|Visit awwards-clone site| Various projects are displayed|User can review projects|
+|Visit zawadi-clone site| Various projects are displayed|User can review projects|
 |Click on image| Image details displayed| Image details displayed|
 |Search project| Images for project are displayed|  App gets the projects for the searched project|
 |Visit profile| Projects posted by user are displayed|App gets projects for user|
