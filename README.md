@@ -67,7 +67,7 @@ SetUp your database User,Password, Host then make migrate
 
 ## Contact Information 
 
-If you have any question or contributions, please email me at [toopreston@gmail.com]
+If you have any question or contributions, please email me at [nderituliz@gmail.com]
 
 ## License
 * [[License: MIT]](LICENCE.md)
